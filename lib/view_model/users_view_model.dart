@@ -1,18 +1,23 @@
+import 'dart:convert';
+
 import 'package:app_artisans_test/data_model/users.dart';
-import 'package:app_artisans_test/utils/api/get_data_from_server.dart';
+import 'package:app_artisans_test/services/api/get_data_from_server.dart';
 import 'package:flutter/widgets.dart';
 
 class UsersViewModel extends ChangeNotifier {
-  User user;
-  var data;
+  List<User> _users;
 
-  Future<User> fetchUserInfo() async {
-    user = User.fromJson(await getDataFromServer());
-    print('User: $user');
+  // int get user => _users;
 
-    data = user;
- 
+  // UsersViewModel() {}
 
-    return user;
+  //  getUsers() async {
+  //   _users = await fetchUserInfo();
+  //   notifyListeners();
+  // }
+
+  Future<List<User>> fetchUserInfo() async {
+    var data = await RestApi.getDataFromServer();
+    return data.map<User>((user) => new User.fromJson(user)).toList();
   }
 }

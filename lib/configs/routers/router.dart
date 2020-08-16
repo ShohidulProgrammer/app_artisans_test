@@ -1,3 +1,4 @@
+import 'package:app_artisans_test/view/user_details.dart';
 import 'package:app_artisans_test/view/user_list_page.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,11 @@ class Router {
       case usersPageRoute:
         return MaterialPageRoute(builder: (_) => UsersListPage());
       case userDetailsPageRoute:
-        return MaterialPageRoute(builder: (_) => UsersListPage());
+        final user = settings.arguments;
+        return MaterialPageRoute(
+            builder: (_) => UserDetailsPage(
+                  user: user,
+                ));
 
       default:
         return MaterialPageRoute(
