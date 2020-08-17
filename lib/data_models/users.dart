@@ -1,13 +1,8 @@
-// import 'package:json_serializable/json_serializable.dart';
-// part 'user.g.dart';
-// @JsonSerializable(nullable: false)
-
 class User {
   final int id;
   final String name;
   final int year;
   final String color;
-  // @JsonKey(name: 'pantone_value')
   final String pantoneValue;
 
   User({
@@ -42,8 +37,4 @@ class User {
       "pantone_value": pantoneValue,
     };
   }
-
-  // factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
-  //  Map<String, dynamic> toJson() => _$UserToJson(this);
-
 }
