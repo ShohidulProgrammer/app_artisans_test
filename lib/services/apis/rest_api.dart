@@ -9,7 +9,7 @@ class RestApi {
       if (response.statusCode == 200) {
         return jsonDecode(response.body)['data'];
       } else {
-        throw Exception('Failed to load data');
+        throw response.statusCode;
       }
     } catch (e) {
       print('Http request SocketException: $e');

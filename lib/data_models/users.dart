@@ -1,5 +1,4 @@
 // import 'package:json_serializable/json_serializable.dart';
-
 // part 'user.g.dart';
 // @JsonSerializable(nullable: false)
 
@@ -8,7 +7,6 @@ class User {
   final String name;
   final int year;
   final String color;
-
   // @JsonKey(name: 'pantone_value')
   final String pantoneValue;
 
@@ -19,9 +17,6 @@ class User {
     this.color,
     this.pantoneValue,
   });
-
-  // factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
-  //  Map<String, dynamic> toJson() => _$UserToJson(this);
 
   // named constructor
   factory User.fromJson(Map<String, dynamic> json) {
@@ -47,4 +42,8 @@ class User {
       "pantone_value": pantoneValue,
     };
   }
+
+  // factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+  //  Map<String, dynamic> toJson() => _$UserToJson(this);
+
 }

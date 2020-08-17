@@ -1,15 +1,13 @@
-import 'package:app_artisans_test/view/user_details.dart';
-import 'package:app_artisans_test/view/user_list_page.dart';
+import 'package:app_artisans_test/UI/views/pages/user_details.dart';
+import 'package:app_artisans_test/UI/views/pages/users_page.dart';
 import 'package:flutter/material.dart';
-
 import 'router_path_const.dart';
 
 class Router {
   static Route<dynamic> generateRoute(RouteSettings settings) {
-    print('${settings.name} was called');
     switch (settings.name) {
       case usersPageRoute:
-        return MaterialPageRoute(builder: (_) => UsersListPage());
+        return MaterialPageRoute(builder: (_) => UsersPage());
       case userDetailsPageRoute:
         final user = settings.arguments;
         return MaterialPageRoute(
@@ -28,10 +26,8 @@ class Router {
 
   ///Singleton factory
   static final Router _instance = Router._internal();
-
   factory Router() {
     return _instance;
   }
-
   Router._internal();
 }
