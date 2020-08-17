@@ -11,14 +11,6 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => UsersViewModel()),
-        // Provider(builder: (_) => httpDb.fetchAllMassages()),
-
-        // Provider(builder: (_) => sendQueueSms),
-        // Provider(builder: (_) => SendQueueSmsBlock),
-
-        // ChangeNotifierProvider<SendQueueSmsBlock>.value(
-        //   value: SendQueueSmsBlock(),
-        // ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

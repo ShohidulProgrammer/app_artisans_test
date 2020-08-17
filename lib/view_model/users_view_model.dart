@@ -1,23 +1,18 @@
-import 'dart:convert';
-
 import 'package:app_artisans_test/data_model/users.dart';
 import 'package:app_artisans_test/services/api/get_data_from_server.dart';
 import 'package:flutter/widgets.dart';
 
 class UsersViewModel extends ChangeNotifier {
-  List<User> _users;
+  int _pageNo = 1;
+  int get pageNo => _pageNo;
 
-  // int get user => _users;
+  void togglePage() {
+    _pageNo = _pageNo == 1 ? 2 : 1;
+    notifyListeners();
+  }
 
-  // UsersViewModel() {}
-
-  //  getUsers() async {
-  //   _users = await fetchUserInfo();
-  //   notifyListeners();
-  // }
-
-  Future<List<User>> fetchUserInfo() async {
-    var data = await RestApi.getDataFromServer();
+  Future<List<User>> loadUserData() async {
+    var data = await RestApi.fetchData(pageNo: _pageNo);
     return data.map<User>((user) => new User.fromJson(user)).toList();
   }
 }
